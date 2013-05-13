@@ -1,0 +1,653 @@
+/**
+ * Style sheet openbpm
+ */
+
+body
+{
+	background-color:#ece4d9;
+}
+
+
+a, body, div, em, input, label, li, ol, p, select, span, strong, td, th, textarea, u, ul
+{
+	font-family:Verdana, sans-serif;
+}
+
+
+a, body, div, input, label, li, ol, p, select, td, th, textarea, u, ul
+{
+	font-size:8pt;
+}
+
+h1
+{
+	padding:0px;
+	font-weight:bold;
+	font-size:10pt;
+}
+
+h2
+{
+	padding:0px;
+	font-weight:bold;
+	font-size:9pt;
+}
+
+a
+{
+	text-decoration:none;
+	color:#a84204;
+}
+
+a:hover
+{
+	text-decoration:underline;
+	color:#a84204;
+}
+
+img
+{
+	vertical-align:middle;
+	border:0px;
+}
+
+.obpm-body
+{
+	position:fixed;
+	left:150px;
+	right:0px;
+	top:70px;
+	bottom:30px;
+	overflow:auto;
+}
+
+.obpm-leftarea
+{
+	position:fixed;
+	left:0px;
+	top:70px;
+	bottom:30px;
+	width:140px;
+	padding-left:10px;
+}
+
+.obpm-header
+{
+	position:fixed;
+	left:0px;
+	top:0px;
+	right:0px;
+	height:60px;
+	font-family:sans-serif;
+	font-weight:bold; 
+	font-size:12pt;
+	color:#9900cc;
+	padding-top:10px;
+	padding-left:10px;
+	vertical-align:middle;
+}
+
+.obpm-footer
+{
+	position:fixed;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	height:20px;
+	margin-right:auto;
+	margin-left:auto;
+	text-align:center;
+	font-weight:bold;
+	font-style:italic;
+	color:#9900cc;
+	vertical-align:middle;
+}
+
+.obpm-menu a
+{
+	text-decoration:none;
+        font-weight:bold;
+        font-size:10pt;
+	color:darkblue;
+	margin-bottom:10px;
+}
+
+.obpm-menu a:hover
+{
+	text-decoration:underline;
+        font-weight:bold;
+        font-size:10pt;
+        color:darkblue;
+}
+
+.obpm-title
+{
+	font-weight:bold;
+}
+
+.obpm-screen
+{
+	margin-top:0px;
+	margin-right:0px;
+	margin-bottom:0px;
+	margin-left:0px;
+	border-style:none;
+	border-width:0px; 
+	padding:0px;
+	width:100%;
+}
+
+.obpm-field
+{
+	font-family:"Lucida Console",Monospace;
+        font-size:15px;
+	margin-top:0px;
+	margin-right:-1px;
+	margin-bottom:0px;
+	margin-left:-1px;
+	border-style:none;
+	border-width:0px; 
+	padding:0;
+	border:0;	
+	background:black;
+	color:lime;
+	border-color:lime;
+	cursor:text;
+	cursor:pointer;
+	height:17px;
+}
+
+.obpm-pfield
+{
+	font-family:"Lucida Console",Monospace;
+        font-size:15px;
+	margin-top:0px;
+	margin-right:-1px;
+	margin-bottom:0px;
+	margin-left:-1px;
+	border-style:none;
+	border-width:0px; 
+	padding:0;
+	border:0;	
+	background:black;
+	color:turquoise;
+	border-color:turquoise;
+	cursor:default;
+	height:17px;
+}
+
+.obpm-line
+{
+	margin-top:0px;
+	margin-right:0px;
+	margin-bottom:0px;
+	margin-left:0px;
+	border-style:none;
+	border-width:0px; 
+	padding:0px;
+	height:18px;
+	width:100%;
+	background:black;
+}
+
+.obpm-status-line
+{
+	font-family:"Lucida Console",Monospace;
+	font-size:15px;
+	background:black;
+	color:lime;
+	margin-top:0px;
+	margin-right:0px;
+	margin-bottom:0px;
+	margin-left:0px;
+	border-style:none;
+	border-width:0px; 
+	border-top-style:double;
+	border-top-width:2px;
+	border-top-color:lime;
+	padding:0px;
+	height:18px;
+	width:100%;
+}
+
+.obpm-field-ie
+{
+	font-family:"Lucida Console",Monospace;
+        font-size:11pt;
+	margin-top:0px;
+	margin-right:0px;
+	margin-bottom:0px;
+	margin-left:0px;
+	border-style:none;
+	border-width:0px; 
+	padding:0px;	
+	vertical-align:top;
+	background:black;
+	color:lime;
+	border-color:lime;
+	cursor:text;
+}
+
+.obpm-pfield-ie
+{
+	font-family:"Lucida Console",Monospace;
+	font-size:11pt;
+	margin-top:0px;
+	margin-right:0px;
+	margin-bottom:0px;
+	margin-left:0px;
+	border-style:none;
+	border-width:0px; 
+	padding:0px;
+	vertical-align:top;	
+	background:black;
+	color:turquoise;
+	border-color:turquoise;
+	cursor:pointer;
+}
+
+.obpm-line-ie
+{
+	margin-top:0px;
+	margin-right:0px;
+	margin-bottom:0px;
+	margin-left:0px;
+	border-style:none;
+	border-width:0px; 
+	padding:0px;
+	height:18px;
+	width:100%;
+	background:black;
+}
+
+.obpm-status-line-ie
+{
+	font-family:"Lucida Console",Monospace;
+	font-size:11pt;
+	background:black;
+	color:lime;
+	margin-top:0px;
+	margin-right:0px;
+	margin-bottom:0px;
+	margin-left:0px;
+	border-style:none;
+	border-width:0px; 
+	border-top-style:double;
+	border-top-width:2px;
+	border-top-color:lime;
+	padding:0px;
+	height:18px;
+	width:100%;
+}
+
+.obpm-right
+{
+	text-align:right;
+}
+
+.obpm-centre
+{
+	text-align:center;
+}
+
+.obpm-field-rev
+{
+	background:lime;
+	color:black;
+}
+
+.obpm-pfield-rev
+{
+	background:turquoise;
+	color:black;
+}
+
+.obpm-field-underline
+{
+	border-bottom-style:solid;
+	border-bottom-width:1px;
+}
+
+.obpm-field-blink
+{
+	text-decoration:blink;
+}
+
+.obpm-field-detectable
+{
+	cursor:pointer;
+}
+
+.obpm-field-intensified
+{
+	color:red;
+	border-color:red;
+}
+
+.obpm-pfield-intensified
+{
+	color:white;
+	border-color:white;
+}
+
+.obpm-field-nondisplay
+{
+	background:black;
+	color:black;
+	border-color:silver;
+}
+
+.obpm-field-neutralblack
+{
+	color:black;
+	border-color:silver;
+}
+
+.obpm-field-blue
+{
+	color:blue;
+	border-color:blue;
+}
+
+.obpm-field-red
+{
+	color:red;
+	border-color:red;
+}
+
+.obpm-field-pink
+{
+	color:pink;
+	border-color:pink;
+}
+
+.obpm-field-green
+{
+	color:lime;
+	border-color:lime;
+}
+
+.obpm-field-turquoise
+{
+	color:turquoise;
+	border-color:turquoise;
+}
+
+.obpm-field-yellow
+{
+	color:yellow;
+	border-color:yellow;
+}
+
+.obpm-field-neutralwhite
+{
+	color:silver;
+	border-color:silver;
+}
+
+.obpm-field-black
+{
+	color:black;
+	border-color:silver;
+}
+
+.obpm-field-deepblue
+{
+	color:navy;
+	border-color:navy;
+}
+
+.obpm-field-orange
+{
+	color:orange;
+	border-color:orange;
+}
+
+.obpm-field-purple
+{
+	color:purple;
+	border-color:purple;
+}
+
+.obpm-field-palegreen
+{
+	color:lime;
+	border-color:lime;
+}
+
+.obpm-field-paleturquoise
+{
+	color:paleturquoise;
+	border-color:paleturquoise;
+}
+
+.obpm-field-grey
+{
+	color:grey;
+	border-color:grey;
+}
+
+.obpm-field-white
+{
+	color:white;
+	border-color:white;
+}
+
+.obpm-field-rdetectable
+{
+	cursor:pointer;
+}
+
+.obpm-field-rintensified
+{
+	background:red;
+	color:white;
+	border-color:white;
+}
+
+.obpm-pfield-rintensified
+{
+	background:white;
+	color:black;
+	border-color:black;
+}
+
+.obpm-field-rneutralblack
+{
+	background:black;
+	color:black;
+	border-color:silver;
+}
+
+.obpm-field-rblue
+{
+	background:blue;
+	color:white;
+	border-color:white;
+}
+
+.obpm-field-rred
+{
+	background:red;
+	color:c;
+	border-color:white;
+}
+
+.obpm-field-rpink
+{
+	background:pink;
+	color:black;
+	border-color:black;
+}
+
+.obpm-field-rgreen
+{
+	background:lime;
+	color:black;
+	border-color:black;
+}
+
+.obpm-field-rturquoise
+{
+	background:turquoise;
+	color:black;
+	border-color:black;
+}
+
+.obpm-field-ryellow
+{
+	background:yellow;
+	color:black;
+	border-color:black;
+}
+
+.obpm-field-rneutralwhite
+{
+	background:silver;
+	color:black;
+	border-color:black;
+}
+
+.obpm-field-rblack
+{
+	background:black;
+	color:black;
+	border-color:silver;
+}
+
+.obpm-field-rdeepblue
+{
+	background:navy;
+	color:white;
+	border-color:white;
+}
+
+.obpm-field-rorange
+{
+	background:orange;
+	color:black;
+	border-color:black;
+}
+
+.obpm-field-rpurple
+{
+	background:purple;
+	color:white;
+	border-color:white;
+}
+
+.obpm-field-rpalegreen
+{
+	background:lime;
+	color:black;
+	border-color:black;
+}
+
+.obpm-field-rpaleturquoise
+{
+	background:paleturquoise;
+	color:black;
+	border-color:black;
+}
+
+.obpm-field-rgrey
+{
+	background:grey;
+	color:black;
+	border-color:black;
+}
+
+.obpm-field-rwhite
+{
+	background:white;
+	color:black;
+	border-color:black;
+}
+
+.obpm-screencontainer
+{
+}
+
+.obpm-hostselect
+{
+	width:100%;
+	height:23px;
+}
+
+.obpm-hostselectlabel
+{
+	height:20px;
+	position:absolute;
+	top:3px;
+	left:0px;
+	text-decoration:none;
+	font-weight:bold;
+	font-size:10pt;
+	color:darkblue;
+}
+
+.obpm-hostselectcombo
+{
+	height:20px;
+	position:absolute;
+	top:2px;
+	left:35pt;
+	text-decoration:none;
+	font-size:8pt;
+	color:darkblue;
+}
+
+.obpm-hostselectbutton
+{
+	position:absolute;
+	top:0px;
+	left:120pt;
+	color:darkblue;
+}
+
+.obpm-topkeyboard
+{
+	text-align:center;
+	width:100%;
+	margin-top:5px;
+	padding-top:3px;
+	padding-bottom:3px;
+	background:Silver;
+}
+
+.obpm-key
+{
+	font-family:arial, Sans-serif;
+	font-style:italic;
+	font-size:7pt;
+	color:DarkSlateGray;
+	text-align:left;
+	padding-bottom:10px;
+	height:30px;
+	width:33px;
+}
+
+.obpm-key-gap
+{
+	font-family:arial, Sans-serif;
+	font-style:italic;
+	font-size:7pt;
+	color:DarkSlateGray;
+	text-align:left;
+	padding-bottom:10px;
+	height:30px;
+	width:33px;
+	margin-right:23px;
+}
+
+.obpm-wide-key
+{
+	font-family:arial, Sans-serif;
+	font-style:italic;
+	font-size:7pt;
+	color:DarkSlateGray;
+	text-align:left;
+	padding-bottom:10px;
+	height:30px;
+	width:50px;
+}

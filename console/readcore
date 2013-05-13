@@ -1,0 +1,1 @@
+gdb -core core.* -d ../common console

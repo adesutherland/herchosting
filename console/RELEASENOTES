@@ -1,0 +1,80 @@
+CONSOLE / WEB3270 RELEASE NOTES
+
+Version 0.2.2 -
+
+Installation Notes
+==================
+
+Unicode
+-------
+Need to ensure than the environment HTTPD_LANG=en_US.UTF-8
+- configure in /etc/sysconfig/httpd
+- and pass the env variable to the fastcgi server by ensuring that the apache config
+FastCGIServer has the -initial-env LANG option.
+
+History
+=======
+
+
+
+Version 0.2.3 - 28 Nov 2009
+
+I-0010 - FIXED
+Special Characters (i.e. "¬") causes the session to crash. UTF8 issues. 
+
+Version 0.2.2 - 23 Sep 2009
+
+I-0009 - FIXED
+When a host disconnects unexpectedly firefox generates a javascript error.
+Altered the stopS3270 function to explicitly hide screen fields.
+
+I-0005 - FIXED
+Extended attributes in unprotected fields no longer create new HTML Fields
+(This means that some extended attributes are lost)
+
+I-0008 - FIXED
+Cursor is not placed at the beginning of a field after a tab
+This was a feature to mitigate the fact the firefox does not support
+overwrite - removed.
+
+I-0002 - WORK AROUND
+In Firefox on a hidden field you cannot see the cursor 
+Surpressed unprotected hidden fields in Firefox
+
+I-0007 - FIXED
+Reduced screen refresh to 2 seconds (locked) and 6 seconds (unlocked)
+respectively
+
+I-0006 - FIXED  
+Excessive WAIT Timeout logs on Aid key timeout (WAIT(1,Unlock)
+Suppress Log Message
+
+
+Version 0.2.1 - 12 Sept 2009
+Initial Hosted Release of web3270
+
+I-0005 (Update - Resolved in 0.2.2)
+Extended Attributes have been mapped to the start of HTML fields. This is a
+blunder as (for example) context highlighting in editors creates multiple
+fields. This worked OK in MVS 3.8 but I will be obliged change the system
+(in the next version) to ignore all but the first extended highlight
+attributes (and have rules to either ignore it anyway or apply it to the
+whole field) in an unprotected field
+
+I-0003 (Update - reported working on Mac/Safari)
+Primary testing has been done in IE and Windows. Firefox with Windows and
+Linux has been tested although this currently seems less stable (There are
+some issues with firefox - see later). I do not believe this will work with
+a Mac and/or other browsers and I have not got access to a Mac.
+
+I-0003 (Update - Ignored, nothing to be done)
+Firefox does not support OVERWRITE mode (i.e. rather than INSERT). The
+Firefox folks do not see the need for OVERWRITE (and want to use the INSERT
+key for other purposes). A bit of an issue for 3270 emulation...
+
+I-0002 (Update - Resolved in 0.2.2)
+In Firefox on a hidden field you cannot see the cursor 
+
+I-0001 (Update - Ignored, nothing to be done)
+Firefox screen redraw seems slow (or at least is not "double buffered" in
+that you can see the fields being redrawn)

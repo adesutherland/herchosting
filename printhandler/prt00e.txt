@@ -1,0 +1,165 @@
+****A  START  STC  222  TSO                             ROOM       11.16.24 PM 23 MAR  9  PRINTER1  SYS BSP1  STC  222  START  A****
+CONSOLE VALUES ENTERED:
+    *NONE ENTERED*
+
+
+
+
+
+PARMLIB VALUES ENTERED:
+    USERMAX=8,                /* No more than 8 users allowed            */
+    RECONLIM=60,              /* Maximum disconnect minutes allowed      */
+    BUFRSIZE=132,             /* VTIOC buffer size                       */
+    HIBFREXT=13200,           /* MAX BUFFERS BEFORE SWAP OUT             */
+    LOBFREXT=6600,            /* MIMIMUM BUFFERS BEFORE SWAP IN          */
+    MODE=NOBREAK,             /* KEYBOARD LOCK OPTION                    */
+    MODESW=NO,                /* MODESWITCH FROM TERMINAL OPTION         */
+    CHNLEN=4,                 /* NO. OF RU'S PER CHAIN                   */
+    CONFTXT=NO,               /* Do not suppress trace of terminal data  */
+    SCRSIZE=1920              /* MAXIMUM SCREEN SIZE                     */
+
+PARMLIB VALUES ACCEPTED:
+    USERMAX=8,RECONLIM=60,BUFRSIZE=132,HIBFREXT=13200,LOBFREXT=6600,
+    SCRSIZE=1920,CHNLEN=4,MODE=NOBREAK,MODESW=NO,CONFTXT=NO
+
+
+
+
+
+CURRENT TCAS PARAMETERS:
+    USERMAX=8,ACBPW=,RECONLIM=60,BUFRSIZE=132,HIBFREXT=13200,
+    LOBFREXT=6600,SCRSIZE=1920,CHNLEN=4,MODE=NOBREAK,MODESW=NO,
+    CONFTXT=NO****A   END   STC  222  TSO                             ROOM       11.16.24 PM 23 MAR  9  PRINTER1  SYS BSP1  STC  222   END   A****
+****A  START  JOB   25  GCCCOMP                         ROOM        8.57.37 PM 24 MAR  9  PRINTER1  SYS BSP1  JOB   25  START  A****
+                                                J E S 2   J O B   L O G
+
+
+20.57.37 JOB   25  IEF722I GCCCOMP  - FAILED - INVALID PASSWORD GIVEN
+20.57.37 JOB   25  $HASP373 GCCCOMP  STARTED - INIT  3 - CLASS C - SYS BSP1
+20.57.37 JOB   25  $HASP396 GCCCOMP  TERMINATED
+
+
+------ JES2 JOB STATISTICS ------
+
+
+ 24 MAR  9 JOB EXECUTION DATE
+
+
+        18 CARDS READ
+
+
+        79 SYSOUT PRINT RECORDS
+
+
+         0 SYSOUT PUNCH RECORDS
+
+
+      0.00 MINUTES EXECUTION TIME
+    1     //GCCCOMP  JOB CLASS=C,REGION=0K,USER=HERC01                            JOB   25
+          ***
+    2     //S1 EXEC GCCCL,
+          //  INFILE='PDPCLIB.SOURCE(PDPTEST)',
+          //  OUTFILE='PDPCLIB.LINKLIB(PDPTEST)',
+          //  COPTS='',
+          //  LOPTS='MAP'
+          ***
+          *** Run sample program
+          ***
+    3     XXGCCCL   PROC PDPPREF='PDPCLIB',GCCPREF='GCC',INFILE='',
+          XX         OUTFILE='',COPTS='',LOPTS='',
+          XX COS1='-S -ansi -pedantic-errors',
+          XX COS2='-o dd:out -'
+          ***
+    4     XXCOMP     EXEC PGM=GCC,
+          XX PARM='&COS1 &COPTS &COS2'
+    5     XXSTEPLIB  DD DSN=&GCCPREF..LINKLIB,DISP=SHR
+          ***
+          *** INCLUDE SHOULD HAVE YOUR OWN HEADERS ADDED
+          ***
+    6     XXINCLUDE  DD DSN=&PDPPREF..INCLUDE,DISP=SHR,DCB=BLKSIZE=32720
+    7     XXSYSINCL  DD DSN=&PDPPREF..INCLUDE,DISP=SHR,DCB=BLKSIZE=32720
+    8     XXSYSIN    DD DSN=&INFILE,DISP=SHR
+    9     XXOUT      DD DSN=&&TEMP,DISP=(,PASS),UNIT=SYSDA,
+          XX            DCB=(LRECL=80,BLKSIZE=9040,RECFM=FB),
+          XX            SPACE=(CYL,(10,10))
+   10     XXSYSPRINT DD SYSOUT=*,DCB=(RECFM=F,LRECL=132,BLKSIZE=132)
+   11     XXSYSTERM  DD SYSOUT=*,DCB=(RECFM=F,LRECL=132,BLKSIZE=132)
+          ***
+   12     XXASM      EXEC PGM=ASMBLR,
+          XX            PARM='DECK,NOLIST',
+          XX            COND=(4,LT,COMP)
+   13     XXSYSLIB   DD DSN=SYS1.MACLIB,DISP=SHR,DCB=BLKSIZE=32720
+   14     XX         DD DSN=&PDPPREF..MACLIB,DISP=SHR
+   15     XXSYSUT1   DD UNIT=SYSDA,SPACE=(CYL,(2,1))
+   16     XXSYSUT2   DD UNIT=SYSDA,SPACE=(CYL,(2,1))
+   17     XXSYSUT3   DD UNIT=SYSDA,SPACE=(CYL,(2,1))
+   18     XXSYSPRINT DD SYSOUT=*
+   19     XXSYSLIN   DD DUMMY
+   20     XXSYSGO    DD DUMMY
+   21     XXSYSPUNCH DD DSN=&&OBJSET,UNIT=SYSDA,SPACE=(80,(200,200)),
+          XX            DISP=(,PASS)
+   22     XXSYSIN    DD DSN=&&TEMP,DISP=(OLD,DELETE)
+          ***
+   23     XXLKED     EXEC PGM=IEWL,PARM='&LOPTS',
+          XX            COND=((4,LT,COMP),(4,LT,ASM))
+   24     XXSYSLIN   DD DSN=&&OBJSET,DISP=(OLD,DELETE)
+   25     XX         DD DDNAME=SYSIN
+   26     XXSYSIN    DD DUMMY
+   27     XXSYSLIB   DD DSN=&PDPPREF..NCALIB,DISP=SHR
+   28     XXSYSLMOD  DD DSN=&OUTFILE,DISP=SHR
+   29     XXSYSUT1   DD UNIT=SYSDA,SPACE=(CYL,(2,1))
+   30     XXSYSPRINT DD SYSOUT=*
+   31     //S2 EXEC PGM=PDPTEST,PARM='fred was here'
+   32     //STEPLIB  DD DSN=PDPCLIB.LINKLIB,DISP=SHR
+   33     //SYSIN    DD DUMMY
+   34     //SYSPRINT DD SYSOUT=*,DCB=(RECFM=F,LRECL=132,BLKSIZE=132)
+   35     //SYSTERM  DD SYSOUT=*,DCB=(RECFM=F,LRECL=132,BLKSIZE=132)
+   36     //INPUT    DD DUMMY
+   37     //OUTPUT   DD DUMMY
+          //
+ STMT NO. MESSAGE
+-
+    4     IEF653I SUBSTITUTION JCL - PARM='-S -ansi -pedantic-errors  -o dd:out -'
+    5     IEF653I SUBSTITUTION JCL - DSN=GCC.LINKLIB,DISP=SHR
+    6     IEF653I SUBSTITUTION JCL - DSN=PDPCLIB.INCLUDE,DISP=SHR,DCB=BLKSIZE=32720
+    7     IEF653I SUBSTITUTION JCL - DSN=PDPCLIB.INCLUDE,DISP=SHR,DCB=BLKSIZE=32720
+    8     IEF653I SUBSTITUTION JCL - DSN=PDPCLIB.SOURCE(PDPTEST),DISP=SHR
+   14     IEF653I SUBSTITUTION JCL - DSN=PDPCLIB.MACLIB,DISP=SHR
+   23     IEF653I SUBSTITUTION JCL - PGM=IEWL,PARM='MAP',
+   27     IEF653I SUBSTITUTION JCL - DSN=PDPCLIB.NCALIB,DISP=SHR
+   28     IEF653I SUBSTITUTION JCL - DSN=PDPCLIB.LINKLIB(PDPTEST),DISP=SHR
+IEF722I GCCCOMP  - FAILED - INVALID PASSWORD GIVEN
+****A   END   JOB   25  GCCCOMP                         ROOM        8.57.38 PM 24 MAR  9  PRINTER1  SYS BSP1  JOB   25   END   A****
+****A  START  STC  239  TSO                             ROOM       10.48.19 PM 28 MAR  9  PRINTER1  SYS BSP1  STC  239  START  A****
+CONSOLE VALUES ENTERED:
+    *NONE ENTERED*
+
+
+
+
+
+PARMLIB VALUES ENTERED:
+    USERMAX=8,                /* No more than 8 users allowed            */
+    RECONLIM=60,              /* Maximum disconnect minutes allowed      */
+    BUFRSIZE=132,             /* VTIOC buffer size                       */
+    HIBFREXT=13200,           /* MAX BUFFERS BEFORE SWAP OUT             */
+    LOBFREXT=6600,            /* MIMIMUM BUFFERS BEFORE SWAP IN          */
+    MODE=NOBREAK,             /* KEYBOARD LOCK OPTION                    */
+    MODESW=NO,                /* MODESWITCH FROM TERMINAL OPTION         */
+    CHNLEN=4,                 /* NO. OF RU'S PER CHAIN                   */
+    CONFTXT=NO,               /* Do not suppress trace of terminal data  */
+    SCRSIZE=1920              /* MAXIMUM SCREEN SIZE                     */
+
+PARMLIB VALUES ACCEPTED:
+    USERMAX=8,RECONLIM=60,BUFRSIZE=132,HIBFREXT=13200,LOBFREXT=6600,
+    SCRSIZE=1920,CHNLEN=4,MODE=NOBREAK,MODESW=NO,CONFTXT=NO
+
+
+
+
+
+CURRENT TCAS PARAMETERS:
+    USERMAX=8,ACBPW=,RECONLIM=60,BUFRSIZE=132,HIBFREXT=13200,
+    LOBFREXT=6600,SCRSIZE=1920,CHNLEN=4,MODE=NOBREAK,MODESW=NO,
+    CONFTXT=NO****A   END   STC  239  TSO                             ROOM       10.48.19 PM 28 MAR  9  PRINTER1  SYS BSP1  STC  239   END   A****
+
